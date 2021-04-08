@@ -7,7 +7,7 @@ import static field.Field.getField;
 import static service.Input.nextInt;
 
 public class Player {
-    private Value value;
+    private final Value value;
 
     public Player(Value value) {
         this.value = value;
@@ -18,7 +18,7 @@ public class Player {
         int i, j;
 
         while (true) {
-            System.out.println("input line and column");
+            System.out.println("input line and column(from 0 to 2):");
             i = nextInt();
             j = nextInt();
 

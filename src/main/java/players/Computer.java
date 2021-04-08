@@ -11,9 +11,9 @@ import static field.Value.VALUE_O;
 import static field.Value.VALUE_X;
 
 public class Computer {
+    private final Value value;
     private int i;
     private int j;
-    private Value value;
 
     public Computer(Value value) {
         this.value = value;
@@ -31,7 +31,7 @@ public class Computer {
             this.i = check.getI();
             this.j = check.getJ();
         } else {
-            Value oppositeValue = value.equals(VALUE_O) ? VALUE_O : VALUE_X;
+            Value oppositeValue = value.equals(VALUE_O) ? VALUE_X : VALUE_O;
 
             if (check.checkFieldForTwo(oppositeValue)) {
                 this.i = check.getI();

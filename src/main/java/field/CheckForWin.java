@@ -12,50 +12,54 @@ public class CheckForWin {
 
     private boolean checkColumns(Value value) {
         Field field = getField();
-        boolean flag = true;
 
         // choose column
-        for (int j = 0; j < field.getArray().length; j++) {
-            flag = true;
+        for (int j = 0; j < field.getSize(); j++) {
+            boolean isWin = true;
             // run through all elements
-            for (int i = 0; i < field.getArray().length; i++) {
-                if (field.getArray()[i][j] != value) {
-                    flag = false;
+            for (int i = 0; i < field.getSize(); i++) {
+                if (!field.isValueIn(i, j, value)) {
+                    isWin = false;
                     break;
                 }
             }
+            if (isWin) {
+                return true;
+            }
         }
-        return flag;
+        return false;
     }
 
     private boolean checkLines(Value value) {
         Field field = getField();
-        boolean flag = true;
 
         // choose line
-        for (int i = 0; i < field.getArray().length; i++) {
-            flag = true;
+        for (int i = 0; i < field.getSize(); i++) {
+            boolean isWin = true;
             // run through all elements
-            for (int j = 0; j < field.getArray().length; j++) {
-                if (field.getArray()[i][j] != value) {
-                    flag = false;
+            for (int j = 0; j < field.getSize(); j++) {
+                if (!field.isValueIn(i, j, value)) {
+                    isWin = false;
                     break;
                 }
             }
+            if (isWin) {
+                return true;
+            }
         }
-        return flag;
+        return false;
     }
 
     private boolean checkDiagonals(Value value) {
         Field field = getField();
 
         // check the main diagonal
-        for (int i = 0; i < field.getArray().length; i++) {
-            if (field.getArray()[i][i] != value) {
+        for (int i = 0; i < field.getSize(); i++) {
+            if (!field.isValueIn(i, i, value)) {
                 // check the side diagonal
                 i = 0;
-                for (int j = field.getArray().length - 1; j >= 0; j--, i++) {
-                    if (field.getArray()[i][j] != value) {
+                for (int j = field.getSize() - 1; j >= 0; j--, i++) {
+                    if (!field.isValueIn(i, j, value)) {
                         return false;
                     }
                 }

@@ -4,13 +4,15 @@ import lombok.Getter;
 
 import static field.Value.VALUE_EMPTY;
 
-@Getter
 public class Field {
     private static Field field;
     private final Value[][] array;
+    @Getter
+    private final int size;
 
-    private Field(int n) {
-        array = new Value[n][n];
+    private Field(int size) {
+        this.size = size;
+        array = new Value[size][size];
         cleanField();
     }
 
@@ -32,28 +34,21 @@ public class Field {
     public void showField() {
         System.out.println(
                 "  " + array[0][0].getValue() + "  |  " + array[0][1].getValue() + "  |  " + array[0][2].getValue() + "\n" +
-                        "---------------" +
+                        "-----------------\n" +
                         "  " + array[1][0].getValue() + "  |  " + array[1][1].getValue() + "  |  " + array[1][2].getValue() + "\n" +
-                        "---------------" +
-                        "  " + array[2][0].getValue() + "  |  " + array[2][1].getValue() + "  |  " + array[2][2].getValue());
+                        "-----------------\n" +
+                        "  " + array[2][0].getValue() + "  |  " + array[2][1].getValue() + "  |  " + array[2][2].getValue() + "\n");
     }
 
     public void setValueIn(int i, int j, Value value) {
         array[i][j] = value;
     }
 
-
-//        if (!isBelongs(0, array.length, i) || !isBelongs(0, array[0].length, j)) {
-//            throw new ArrayIndexOutOfBoundsException("out of bounds of an array");
-//        }
-
-
     public boolean isEmptyIn(int i, int j) {
         return array[i][j].equals(VALUE_EMPTY);
     }
 
     public boolean isValueIn(int i, int j, Value value) {
-
         return array[i][j].equals(value);
     }
 }

@@ -22,21 +22,24 @@ public class Multiplayer {
             field.showField();
             if (check.checkFieldForWin(VALUE_X)) {
                 System.out.println("player1 win!");
+                field.cleanField();
                 break;
             }
             move++;
+            if (move >= 9) {
+                System.out.println("none win!");
+                break;
+            }
 
-            System.out.println("\n\n\n");
 
             player2.move();
             field.showField();
-            if (check.checkFieldForWin(VALUE_O) || move >= 9) {
+            if (check.checkFieldForWin(VALUE_O)) {
                 System.out.println("player2 win!");
+                field.cleanField();
                 break;
             }
             move++;
-
-            System.out.println("\n\n\n");
         }
     }
 }

@@ -23,21 +23,24 @@ public class Singleplayer {
             field.showField();
             if (check.checkFieldForWin(VALUE_X)) {
                 System.out.println("you win!");
+                field.cleanField();
                 break;
             }
             move++;
+            if (move >= 9) {
+                System.out.println("none win!");
+                break;
+            }
 
-            System.out.println("\n\n\n");
 
             computer.move();
             field.showField();
-            if (check.checkFieldForWin(VALUE_O) || move >= 9) {
+            if (check.checkFieldForWin(VALUE_O)) {
                 System.out.println("computer win!");
+                field.cleanField();
                 break;
             }
             move++;
-
-            System.out.println("\n\n\n");
         }
     }
 }
