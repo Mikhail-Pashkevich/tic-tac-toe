@@ -1,13 +1,13 @@
-package game;
+package game.service;
 
-import field.CheckForWin;
-import field.Field;
-import players.Computer;
-import players.Player;
+import game.field.CheckForWin;
+import game.field.Field;
+import game.players.Computer;
+import game.players.Player;
 
-import static field.Field.getField;
-import static field.Value.VALUE_O;
-import static field.Value.VALUE_X;
+import static game.field.Field.getField;
+import static game.field.Value.VALUE_O;
+import static game.field.Value.VALUE_X;
 
 public class Singleplayer {
     public void start() {
@@ -23,7 +23,6 @@ public class Singleplayer {
             field.showField();
             if (check.checkFieldForWin(VALUE_X)) {
                 System.out.println("you win!");
-                field.cleanField();
                 break;
             }
             move++;
@@ -37,10 +36,10 @@ public class Singleplayer {
             field.showField();
             if (check.checkFieldForWin(VALUE_O)) {
                 System.out.println("computer win!");
-                field.cleanField();
                 break;
             }
             move++;
         }
+        field.cleanField();
     }
 }

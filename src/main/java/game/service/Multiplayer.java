@@ -1,12 +1,12 @@
-package game;
+package game.service;
 
-import field.CheckForWin;
-import field.Field;
-import players.Player;
+import game.field.CheckForWin;
+import game.field.Field;
+import game.players.Player;
 
-import static field.Field.getField;
-import static field.Value.VALUE_O;
-import static field.Value.VALUE_X;
+import static game.field.Field.getField;
+import static game.field.Value.VALUE_O;
+import static game.field.Value.VALUE_X;
 
 public class Multiplayer {
     public void start() {
@@ -22,7 +22,6 @@ public class Multiplayer {
             field.showField();
             if (check.checkFieldForWin(VALUE_X)) {
                 System.out.println("player1 win!");
-                field.cleanField();
                 break;
             }
             move++;
@@ -36,10 +35,10 @@ public class Multiplayer {
             field.showField();
             if (check.checkFieldForWin(VALUE_O)) {
                 System.out.println("player2 win!");
-                field.cleanField();
                 break;
             }
             move++;
         }
+        field.cleanField();
     }
 }

@@ -1,10 +1,10 @@
-package players;
+package game.players;
 
-import field.Field;
-import field.Value;
+import game.field.Field;
+import game.field.Value;
 
-import static field.Field.getField;
-import static service.Input.nextInt;
+import static game.field.Field.getField;
+import static game.util.Input.nextInt;
 
 public class Player {
     private final Value value;

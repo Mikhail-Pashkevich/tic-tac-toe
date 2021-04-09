@@ -1,4 +1,4 @@
-package service;
+package game.util;
 
 import java.util.Scanner;
 

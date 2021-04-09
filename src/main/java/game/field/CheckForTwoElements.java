@@ -1,8 +1,8 @@
-package field;
+package game.field;
 
 import lombok.Getter;
 
-import static field.Field.getField;
+import static game.field.Field.getField;
 
 @Getter
 public class CheckForTwoElements {

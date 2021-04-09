@@ -1,14 +1,14 @@
-package players;
+package game.players;
 
-import field.CheckForTwoElements;
-import field.Field;
-import field.Value;
+import game.field.CheckForTwoElements;
+import game.field.Field;
+import game.field.Value;
 
 import java.util.Random;
 
-import static field.Field.getField;
-import static field.Value.VALUE_O;
-import static field.Value.VALUE_X;
+import static game.field.Field.getField;
+import static game.field.Value.VALUE_O;
+import static game.field.Value.VALUE_X;
 
 public class Computer {
     private final Value value;

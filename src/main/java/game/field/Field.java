@@ -1,8 +1,8 @@
-package field;
+package game.field;
 
 import lombok.Getter;
 
-import static field.Value.VALUE_EMPTY;
+import static game.field.Value.VALUE_EMPTY;
 
 public class Field {
     private static Field field;
